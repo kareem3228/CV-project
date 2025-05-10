@@ -29,6 +29,9 @@ while True:
             emotions["angry"] *= 1.5
             emotions['happy'] *=0.5
             emotions["neutral"] *= 0.5
+        # Normalize the scores to sum to 1
+        total = sum(emotions.values())
+        emotions = {k: v / total for k, v in emotions.items()}
         # Pick the emotion with highest score
         dominant_emotion = max(emotions, key=emotions.get)
 
